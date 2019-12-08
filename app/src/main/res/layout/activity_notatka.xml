@@ -18,7 +18,7 @@
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.0"/>
     <Button
-            android:text="Powrot"
+            android:text="Powrót"
             android:layout_width="170dp"
             android:layout_height="89dp"
             android:id="@+id/menu_notatka" android:layout_marginTop="8dp"
