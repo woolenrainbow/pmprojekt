@@ -121,10 +121,6 @@ public class Form extends Fragment {
                         DataBase dataBase = new DataBase(getActivity());
                         TaskDAO taskDAO = new TaskDAO(dataBase.getWritableDatabase());
                         taskDAO.save(newTask);
-                        List<Task> check = taskDAO.getAll();
-                        for(Task t : check){
-                            Log.e("debug", t.name);
-                        }
                         Toast.makeText(getActivity(), "Dodano wpis", Toast.LENGTH_LONG).show();
                         getActivity().getSupportFragmentManager().beginTransaction().remove(Form.this).commit();
                         //getActivity().onBackPressed();
