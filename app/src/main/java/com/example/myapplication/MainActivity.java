@@ -60,5 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        startService(new Intent(this, TaskMonitor.class));
     }
 }
