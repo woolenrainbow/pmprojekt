@@ -1,6 +1,10 @@
 package com.example.myapplication;
 
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
+import android.widget.*;
 import androidx.fragment.app.Fragment;
 
 import android.app.TimePickerDialog;
@@ -8,16 +12,10 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TimePicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,5 +59,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         startService(new Intent(this, TaskMonitor.class));
+        registerReceiver(mMessageReceiver,new IntentFilter("com.example.myapplication.REC_INCOMING"));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mMessageReceiver);
+    }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String message = intent.getStringExtra("mes");
+            Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+        }
+    };
 }
