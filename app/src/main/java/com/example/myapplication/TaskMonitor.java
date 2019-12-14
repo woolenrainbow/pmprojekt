@@ -56,7 +56,6 @@ public class TaskMonitor extends Service {
                             int t2h = (int) (date.getHours());
                             if ((t1h < t2h && t2h < t3h) || (t1h == t2h && t2m > t1m && t2h < t3h) || (t3h == t2h && t2m < t3m && t2h > t1h) || (t1h == t2h && t3h == t2h && t2m > t1m && t2m < t3m)) {
                                 incoming = t;
-                                final Fragment f2 = new ProgressBar();
                                 final NotificationManager mNotifyManager;
                                 final NotificationCompat.Builder mBuilder;
                                 final int min_number = (t3h - t1h) * 60 + (t3m - t1m);
@@ -139,7 +138,6 @@ public class TaskMonitor extends Service {
                                 int t2h = (int) (date.getHours());
                                 if ((t1h < t2h && t2h < t3h) || (t1h == t2h && t2m > t1m && t2h < t3h) || (t3h == t2h && t2m < t3m && t2h > t1h) || (t1h == t2h && t3h == t2h && t2m > t1m && t2m < t3m)) {
                                     incoming = t;
-                                    final Fragment f2 = new ProgressBar();
                                     final NotificationManager mNotifyManager;
                                     final NotificationCompat.Builder mBuilder;
                                     final int min_number = (t3h - t1h) * 60 + (t3m - t1m);
