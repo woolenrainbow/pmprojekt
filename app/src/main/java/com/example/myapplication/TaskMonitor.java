@@ -91,6 +91,34 @@ public class TaskMonitor extends Service {
                                 //break;
                                 already_used.add(t.id);
                             }
+                            if ((t1h == t2h && t1m - t2m == 5) || (t1h - t2h == 1 && t1h + 59 - t2h == 5)) {
+                                Intent intent = new Intent("com.example.myapplication.REC_INCOMING");
+                                String mes = t.name + ": " + t.start.getHours() + ":";
+                                if (t.start.getMinutes() < 10) {
+                                    mes = mes + "0" + t.start.getMinutes();
+                                }
+                                else {
+                                    mes = mes + t.start.getMinutes();
+                                }
+                                mes = mes + " - " + t.finish.getHours() + ":";
+                                if (t.finish.getMinutes() < 10) {
+                                    mes = mes + "0" + t.finish.getMinutes();
+                                }
+                                else {
+                                    mes = mes + t.finish.getMinutes();
+                                }
+                                intent.putExtra("mes", mes);
+                                sendBroadcast(intent);
+                                NotificationManager mNotifyManager;
+                                NotificationCompat.Builder mBuilder;
+                                mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                mBuilder = new NotificationCompat.Builder(TaskMonitor.this);
+                                mBuilder.setContentTitle("Plan zajęć")
+                                        .setSmallIcon(R.drawable.ic_stat_name)
+                                        .setContentText(mes);
+                                final int id = 0 - t.id;
+                                mNotifyManager.notify(id, mBuilder.build());
+                            }
                         }
                     }
                 }
