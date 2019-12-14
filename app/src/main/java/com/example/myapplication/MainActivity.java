@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Fragment fragment = new MenuFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frameLayoutMenu, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+
         DataBase dataBase = new DataBase(this);
 
         Button addBtn = (Button)findViewById(R.id.add);
@@ -42,22 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        Button btn1 = findViewById(R.id.menu_left);
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, NotatkaActivity.class);
-                startActivity(i);
-            }
-        });
-        Button btn2 = findViewById(R.id.menu_right);
-        btn2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, ListaActivity.class);
-                startActivity(i);
-            }
-        });
         startService(new Intent(this, TaskMonitor.class));
         registerReceiver(mMessageReceiver,new IntentFilter("com.example.myapplication.REC_INCOMING"));
     }
