@@ -14,15 +14,15 @@ public class TaskDAO implements DAO<Task> {
 
     @Override
     public void save(Task element) {
-        String hours = String.valueOf(element.start.getHours());
-        String minutes = String.valueOf(element.finish.getMinutes());
+        String start = String.valueOf(element.start.getHours()) + ":" + String.valueOf(element.start.getMinutes());
+        String finish = String.valueOf(element.finish.getHours()) + ":" + String.valueOf(element.finish.getMinutes());
         sqLiteDatabase.execSQL("INSERT INTO " + TaskHelper.TAB_NAME +"("+
                 TaskHelper.TaskColums.NAME + ", "+
                 TaskHelper.TaskColums.DAY + ", "+
                 TaskHelper.TaskColums.START + ", "+
                 TaskHelper.TaskColums.FINISH +") VALUES('" +
                 element.name+ "', "+ element.day + ",'" +
-                hours+"','"+ minutes+"' )");
+                start+"','"+ finish+"' )");
     }
 
     @Override
