@@ -89,7 +89,7 @@ public class Form extends Fragment {
         });
 
         //String daysArray[] = {"Sunday","Monday","Tuesday", "Wednesday","Thursday","Friday", "Saturday"};
-        String daysArray[] = {"Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"};
+        String daysArray[] = {getResources().getString(R.string.niedziela), getResources().getString(R.string.poniedzialek), getResources().getString(R.string.wtorek), getResources().getString(R.string.sroda), getResources().getString(R.string.czwartek), getResources().getString(R.string.piatek), getResources().getString(R.string.sobota)};
         values = new HashMap<String, Integer>();
         values.put(daysArray[0], 0);
         values.put(daysArray[1], 1);
@@ -121,14 +121,14 @@ public class Form extends Fragment {
                         DataBase dataBase = new DataBase(getActivity());
                         TaskDAO taskDAO = new TaskDAO(dataBase.getWritableDatabase());
                         taskDAO.save(newTask);
-                        Toast.makeText(getActivity(), "Dodano wpis", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), getResources().getString(R.string.dodano_wpis), Toast.LENGTH_LONG).show();
                         getActivity().getSupportFragmentManager().beginTransaction().remove(Form.this).commit();
                         //getActivity().onBackPressed();
                     } else {
-                        Toast.makeText(getActivity(), "Uzupełnij formularz poprawnymi danymi", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), getResources().getString(R.string.wypelnij_form), Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    Toast.makeText(getActivity(), "Uzupełnij formularz", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.wypelnij_form2), Toast.LENGTH_LONG).show();
                 }
             }
         });

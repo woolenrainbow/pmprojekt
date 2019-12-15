@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Schedule</string>
+    <string name="niedziela">Sunday</string>
+    <string name="poniedzialek">Monday</string>
+    <string name="wtorek">Tuesday</string>
+    <string name="sroda">Wednesday</string>
+    <string name="czwartek">Thursday</string>
+    <string name="piatek">Friday</string>
+    <string name="sobota">Saturday</string>
+    <string name="dodano_wpis">Entry added</string>
+    <string name="wypelnij_form">Fill form with valid data</string>
+    <string name="wypelnij_form2">Fill form</string>
+    <string name="usun">Delete</string>
+    <string name="anuluj">Cancel</string>
+    <string name="if_usun">Cancel?</string>
+    <string name="plan">Schedule</string>
+    <string name="wybierz">Choose</string>
+    <string name="dodaj_zaj">Add new task</string>
+    <string name="zapis">Save</string>
+    <string name="zadanie">Task</string>
+    <string name="dodaj">Add</string>
+    <string name="notatka">Note</string>
+    <string name="main">Main</string>
+    <string name="lista_zaj">Task list</string>
+</resources>

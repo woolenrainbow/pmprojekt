@@ -62,7 +62,7 @@ public class TaskMonitor extends Service {
                                 final int curr_minute = (t2h - t1h) * 60 + (t2m - t1m);
                                 mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 mBuilder = new NotificationCompat.Builder(TaskMonitor.this);
-                                mBuilder.setContentTitle("Plan zajęć")
+                                mBuilder.setContentTitle(getResources().getString(R.string.plan))
                                         .setSmallIcon(R.drawable.ic_stat_name)
                                         .setContentText(t.name);
                                 final int id = t.id;
@@ -113,7 +113,7 @@ public class TaskMonitor extends Service {
                                 NotificationCompat.Builder mBuilder;
                                 mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 mBuilder = new NotificationCompat.Builder(TaskMonitor.this);
-                                mBuilder.setContentTitle("Plan zajęć")
+                                mBuilder.setContentTitle(getResources().getString(R.string.plan))
                                         .setSmallIcon(R.drawable.ic_stat_name)
                                         .setContentText(mes);
                                 final int id = 0 - t.id;
@@ -172,7 +172,7 @@ public class TaskMonitor extends Service {
                                     final int curr_minute = (t2h - t1h) * 60 + (t2m - t1m);
                                     mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                     mBuilder = new NotificationCompat.Builder(TaskMonitor.this);
-                                    mBuilder.setContentTitle("Plan zajęć")
+                                    mBuilder.setContentTitle(getResources().getString(R.string.plan))
                                             .setSmallIcon(R.drawable.ic_stat_name)
                                             .setContentText(t.name);
                                     final int id = t.id;
