@@ -47,4 +47,21 @@ public class Task {
             return true;
         return false;
     }
+
+    @Override
+    public String toString(){
+        String _sHour = start.getHours() < 10 ? "0" + start.getHours() : String.valueOf(start.getHours());
+        String _sMinute = start.getMinutes() < 10 ? "0" + start.getMinutes() : String.valueOf(start.getMinutes());
+        String _fHour = finish.getHours() < 10 ? "0" + finish.getHours() : String.valueOf(finish.getHours());
+        String _fMinute = finish.getMinutes() < 10 ? "0" + finish.getMinutes() : String.valueOf(finish.getMinutes());
+        return name + " " + _sHour + ":" + _sMinute + "-" +_fHour + ":" + _fMinute;
+    }
+
+    @Override
+    public  boolean equals(Object object){
+        if(((Task)object).id == id){
+            return true;
+        }
+        return false;
+    }
 }

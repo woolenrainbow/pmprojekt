@@ -40,4 +40,9 @@ public class TaskDAO implements DAO<Task> {
         }
         return tasks;
     }
+
+    @Override
+    public void remove(Task element) {
+        sqLiteDatabase.execSQL("DELETE FROM "+ TaskHelper.TAB_NAME + " WHERE " + TaskHelper.TaskColums.ID + " = " + element.id);
+    }
 }
