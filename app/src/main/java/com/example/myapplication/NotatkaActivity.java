@@ -39,4 +39,8 @@ public class NotatkaActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onBackPressed(){
+        finish();
+    }
 }
