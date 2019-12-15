@@ -40,6 +40,7 @@ public class NotatkaActivity extends AppCompatActivity {
         registerReceiver(mMessageReceiver,new IntentFilter("com.example.myapplication.REC_INCOMING"));
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -53,4 +54,9 @@ public class NotatkaActivity extends AppCompatActivity {
             Toast.makeText(NotatkaActivity.this,message,Toast.LENGTH_LONG).show();
         }
     };
+  
+    public void onBackPressed(){
+        finish();
+    }
+
 }

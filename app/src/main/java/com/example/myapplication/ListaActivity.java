@@ -129,4 +129,9 @@ public class ListaActivity extends AppCompatActivity {
             Toast.makeText(ListaActivity.this,message,Toast.LENGTH_LONG).show();
         }
     };
+
+    public void onBackPressed(){
+        finish();
+    }
+
 }
