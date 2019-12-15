@@ -2,8 +2,7 @@ package com.example.myapplication;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.*;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +38,7 @@ public class ListaActivity extends AppCompatActivity {
         final TaskDAO taskDAO = new TaskDAO(dataBase.getWritableDatabase());
         taskList = taskDAO.getAll();
 
-        String daysArray[] = {"Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"};
+        String daysArray[] = {getResources().getString(R.string.niedziela), getResources().getString(R.string.poniedzialek), getResources().getString(R.string.wtorek), getResources().getString(R.string.sroda), getResources().getString(R.string.czwartek), getResources().getString(R.string.piatek), getResources().getString(R.string.sobota)};
         values = new HashMap<String, Integer>();
         values.put(daysArray[0], 0);
         values.put(daysArray[1], 1);
@@ -81,7 +80,7 @@ public class ListaActivity extends AppCompatActivity {
                     public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
                         String selectedItem = parent.getItemAtPosition(position).toString();
                         AlertDialog.Builder builder = new AlertDialog.Builder(ListaActivity.this);
-                        builder.setPositiveButton("Usuń", new DialogInterface.OnClickListener() {
+                        builder.setPositiveButton(getResources().getString(R.string.usun), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //Toast.makeText(getApplicationContext(), "asdas", Toast.LENGTH_LONG).show();
@@ -93,14 +92,14 @@ public class ListaActivity extends AppCompatActivity {
                                 //listView.invalidateViews();
                             }
                         });
-                        builder.setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
+                        builder.setNegativeButton(getResources().getString(R.string.anuluj), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //Toast.makeText(getApplicationContext(), "aaaas", Toast.LENGTH_LONG).show();
                             }
                         });
-                        builder.setMessage("Czy usunąć wpis?");
-                        builder.setTitle("Usuń");
+                        builder.setMessage(getResources().getString(R.string.if_usun));
+                        builder.setTitle(getResources().getString(R.string.usun));
                         AlertDialog dialog = builder.create();
                         dialog.show();
                         //Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_LONG).show();
@@ -113,5 +112,21 @@ public class ListaActivity extends AppCompatActivity {
         Fragment fragment = new MenuFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayoutMenu, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+
+        registerReceiver(mMessageReceiver,new IntentFilter("com.example.myapplication.REC_INCOMING"));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mMessageReceiver);
+    }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String message = intent.getStringExtra("mes");
+            Toast.makeText(ListaActivity.this,message,Toast.LENGTH_LONG).show();
+        }
+    };
 }

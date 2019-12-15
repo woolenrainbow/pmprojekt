@@ -1,6 +1,25 @@
 <resources>
-    <string name="app_name">My Application</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Plan</string>
+    <string name="poniedzialek">Poniedziałek</string>
+    <string name="wtorek">Wtorek</string>
+    <string name="sroda">Środa</string>
+    <string name="czwartek">Czwartek</string>
+    <string name="piatek">Piątek</string>
+    <string name="sobota">Sobota</string>
+    <string name="niedziela">Niedziela</string>
+    <string name="dodano_wpis">Dodano wpis</string>
+    <string name="wypelnij_form">Uzupełnij formularz poprawnymi danymi</string>
+    <string name="wypelnij_form2">Uzupełnij formularz</string>
+    <string name="usun">Usuń</string>
+    <string name="anuluj">Anuluj</string>
+    <string name="if_usun">Czy usunąć?</string>
+    <string name="plan">Plan zajęć</string>
+    <string name="wybierz">Wybierz</string>
+    <string name="dodaj_zaj">Dodaj nowe zajęcie</string>
+    <string name="zapis">Zapisz</string>
+    <string name="zadanie">Zadanie</string>
+    <string name="dodaj">Dodaj</string>
+    <string name="notatka">Notatka</string>
+    <string name="main">Ekran główny</string>
+    <string name="lista_zaj">Lista zajęć</string>
 </resources>
