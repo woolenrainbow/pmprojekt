@@ -114,4 +114,8 @@ public class ListaActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayoutMenu, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
     }
+
+    public void onBackPressed(){
+        finish();
+    }
 }
